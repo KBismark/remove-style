@@ -1,13 +1,14 @@
-const {RemoveInlineStyles,getStyleSheet,writeToCSSFile} = require("./lib/remove-style");
+const {RemoveInlineStyles,getStyleSheet,writeToCSSFile,readDir} = require("./lib/remove-style");
 /**
  * 
- * @param {{htmlStrings:string[],filePaths:string[],overWriteFiles:boolean,cssDestination:string}} input 
+ * @param {{htmlStrings:string[],filePaths:string[],dirPath:string,overWriteFiles:boolean,cssDestination:string}} input 
  */
-module.exports = function(input){
+module.exports = function InputTaker(input){
     var result = {
         htmlOutputs:[],
         styleSheet:""
     };
+    //If HTML strings are provided, use that
     if(Array.isArray(input.htmlStrings)){
         var i;
         for(i=0;i<input.htmlStrings.length;i++){
@@ -16,7 +17,9 @@ module.exports = function(input){
             }));
         }
         result.styleSheet = getStyleSheet();
-    }else if(Array.isArray(input.filePaths)){
+    }
+    //If File names are provided, use that
+    else if(Array.isArray(input.filePaths)){
         var i;
         //Will not overwrite files if only `overWriteFiles` is set to false
         //If files are not over written then, we return an array of parsed outputs
@@ -42,6 +45,14 @@ module.exports = function(input){
         }else{
             writeToCSSFile(input.cssDestination);
         }
+    }
+    //If a directory name was provided, use that
+    else if(typeof (input.dirPath)=="string"){
+        return InputTaker({
+            filePaths:readDir(input.dirPath),
+            overWriteFiles:input.overWriteFiles,
+            cssDestination:input.cssDestination
+        });
     }
     return result;
 }
