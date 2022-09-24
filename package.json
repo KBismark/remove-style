@@ -1,0 +1,30 @@
+{
+  "name": "remove-style",
+  "version": "1.0.0",
+  "description": "Remove inline styles from html file",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KBismark/remove-style.git"
+  },
+  "keywords": [
+    "remove-style",
+    "remove-inline-style",
+    "minimize-css",
+    "css-minimizer",
+    "html-style-romever",
+    "remove-html-styles"
+  ],
+  "author": "Bismark Yamoah",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KBismark/remove-style/issues"
+  },
+  "homepage": "https://github.com/KBismark/remove-style#readme"
+}
