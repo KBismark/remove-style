@@ -77,7 +77,10 @@ File2.html
 
 
 ## How To Use
-First install Remove-Style from NPM. `npm install remove-style`
+First install Remove-Style from NPM. 
+```
+npm install remove-style
+```
 
 ### Usage 1 - Passing HTML strings as argument
 You can pass HTML strings as argument to Remove-Style to remove inline styles. In that case,
@@ -147,25 +150,21 @@ In the case that you want to pass files or a directory as argument:
 In the case when all arguments are given together, HTML strings takes the higher preference.
 A directory takes the lowest preference if passed as argument with any other possible argument.
 
-## MIT Lincensed
-MIT License
+### A Note On the "rs-" Prefix
+In order to prevent class names collission with existing class names, Remove-Style prefix
+class names with "rs-".
 
-Copyright (c) 2022 Bismark Yamoah 
+### A Note On the Class Names Used by Remove-Style
+Remove-Style can produce over 13 million distinct or unique class names.
+You can do the maths:
+- 62 Permutation 4 
+- 62 Permutation 3
+- 62 Permutation 2
+- 62 Permutation 1    
+That is to say; Remove-Style produces the class names from 62 characters, alpha-numerals 
+(both lowercase and uppercase).
+Class names are generated starting from single characters to maximum of 4 characters (excludeing the "rs-" prefix).
+So in the worst case, 7 characters is used for each class name.    
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+## [MIT Lincensed](https://github.com/KBismark/remove-style/blob/master/LICENSE)
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
