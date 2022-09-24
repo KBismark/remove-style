@@ -88,7 +88,8 @@ Remove-Style returns the removed styles' HTML strings and the CSS string.
 
 ```js
     var rs = require("remove-style");
-    var resut = rs({
+    var result = rs({
+        
         //Put all your HTML strings here
         htmlStrings:["your first html string","your second html string","your third html string"]
     });
@@ -114,11 +115,14 @@ In the case that you want to pass files or a directory as argument:
 **With files as argument**
 ```js
     var rs = require("remove-style");
-    var resut = rs({
+    var result = rs({
+
         //Put the path to all your HTML files here
         filePaths:["filename1", "filename2", "filename13"],
+
         //Choose whether to overwrite files or not
         overWriteFiles:false||true||undefined,
+
         //Set a the style sheet destination or ignore to get it as string
         cssDestination:"path to style sheet destination"||undefined
     });
@@ -132,11 +136,14 @@ In the case that you want to pass files or a directory as argument:
 **With a directory as argument**
 ```js
     var rs = require("remove-style");
-    var resut = rs({
+    var result = rs({
+
         //Place your directory path here
         dirPath:"directory path",
+
         //Choose whether to overwrite files or not
         overWriteFiles:false||true||undefined,
+
         //Set a the style sheet destination or ignore to get it as string
         cssDestination:"path to style sheet destination"||undefined
     });
@@ -151,7 +158,7 @@ In the case when all arguments are given together, HTML strings takes the higher
 A directory takes the lowest preference if passed as argument with any other possible argument.
 
 ### A Note On the "rs-" Prefix
-In order to prevent class names collission with existing class names, Remove-Style prefix
+In order to prevent class names collision with existing class names, Remove-Style prefix
 class names with "rs-".
 
 ### A Note On the Class Names Used by Remove-Style
@@ -160,7 +167,8 @@ You can do the maths:
 - 62 Permutation 4 
 - 62 Permutation 3
 - 62 Permutation 2
-- 62 Permutation 1    
+- 62 Permutation 1     
+
 That is to say; Remove-Style produces the class names from 62 characters, alpha-numerals 
 (both lowercase and uppercase).
 Class names are generated starting from single characters to maximum of 4 characters (excludeing the "rs-" prefix).
